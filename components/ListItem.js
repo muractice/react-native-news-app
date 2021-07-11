@@ -1,8 +1,5 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
-import ListItem from './components/ListItem'
-import articles from './dummies/article.json'
 
 const styles = StyleSheet.create({
     container: {
@@ -36,17 +33,23 @@ const styles = StyleSheet.create({
     },
 })
 
-export default function App() {
-    const items = articles.map((article, index) => {
-        return (
-            <ListItem
-                imageUri={article.urlToImage}
-                title={article.title}
-                atuher={article.author}
-                key={index}
-            />
-        )
-    })
-
-    return <View style={styles.container}>{items}</View>
+const ListItem = ({ imageUri, title, auther }) => {
+    return (
+        <View style={styles.itemContainer}>
+            <View style={styles.leftContainer}>
+                <Image
+                    style={{ width: 100, height: 100 }}
+                    source={{ uri: imageUri }}
+                />
+            </View>
+            <View style={styles.rightContainer}>
+                <Text numberOfLines={3} style={styles.text}>
+                    {title}
+                </Text>
+                <Text style={styles.subText}>{auther}</Text>
+            </View>
+        </View>
+    )
 }
+
+export default ListItem
