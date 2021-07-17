@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native'
-import ListItem from './components/ListItem'
+import ListItem from '../components/ListItem'
 import Constants from 'expo-constants'
 import axios from 'axios'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
 
 const URL = `https://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`
 
@@ -38,14 +36,9 @@ const styles = StyleSheet.create({
     },
 })
 
-export default function App() {
+export default function HomeScreen() {
     const [articles, setArticles] = useState([])
     useEffect(() => {
-        // alert(Constants.manifest.extra.newsApiKey)
-        // const timer = setTimeout(() => {
-        //     setArticles(dummyArticles)
-        // }, 2000)
-        // return () => clearTimeout(timer)
         fetchArticles()
     }, [])
 
