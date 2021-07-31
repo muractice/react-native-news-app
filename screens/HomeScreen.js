@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     },
 })
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     const [articles, setArticles] = useState([])
     useEffect(() => {
         fetchArticles()
@@ -61,6 +61,9 @@ export default function HomeScreen() {
                         imageUri={item.urlToImage}
                         title={item.title}
                         auther={item.author}
+                        onPress={() =>
+                            navigation.navigate('Article', { article: item })
+                        }
                     />
                 )}
                 keyExtractor={(item, index) => index.toString()}
