@@ -8,7 +8,7 @@ const stules = StyleSheet.create({
     },
 })
 
-const ClipBUtton = ({ onPress, enabled }) => {
+const ClipButton = ({ onPress, enabled }) => {
     const name = enabled ? 'bookmark' : 'bookmark-o'
     return (
         <TouchableOpacity onPress={onPress} style={StyleSheet.container}>
