@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-const stules = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         padding: 5,
     },
@@ -11,7 +11,7 @@ const stules = StyleSheet.create({
 const ClipButton = ({ onPress, enabled }) => {
     const name = enabled ? 'bookmark' : 'bookmark-o'
     return (
-        <TouchableOpacity onPress={onPress} style={StyleSheet.container}>
+        <TouchableOpacity onPress={onPress} style={styles.container}>
             <FontAwesome name={name} size={40} color="gray" />
         </TouchableOpacity>
     )
